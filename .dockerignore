@@ -18,6 +18,9 @@
 
 node_modules
 **/node_modules
+frontend/build
+backend/build
+backend/logs
 README*
 *.md
 .git

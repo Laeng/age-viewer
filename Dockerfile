@@ -7,7 +7,7 @@ WORKDIR /src
 COPY . .
 
 RUN npm run setup
-RUN cd frontend && npx react-scripts --openssl-legacy-provider build
+RUN cd frontend && NODE_OPTIONS=--openssl-legacy-provider npx react-scripts build
 RUN cd backend && npm run build
 
 # Stage 2: Production
