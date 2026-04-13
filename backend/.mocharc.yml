@@ -1,0 +1,4 @@
+require:
+  - "@babel/register"
+exit: true
+timeout: 100000

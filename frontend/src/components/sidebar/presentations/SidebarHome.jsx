@@ -21,7 +21,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Modal } from 'antd';
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 import { connect, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo, faTimes } from '@fortawesome/free-solid-svg-icons';

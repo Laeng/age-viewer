@@ -19,7 +19,7 @@
 
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 
 const FrameSlice = createSlice({
   name: 'frames',

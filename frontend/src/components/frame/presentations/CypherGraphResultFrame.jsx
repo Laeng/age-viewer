@@ -18,7 +18,7 @@
  */
 
 import React, { createRef, useEffect, useState } from 'react';
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 import { saveAs } from 'file-saver';
 import { Parser } from 'json2csv';
 import PropTypes from 'prop-types';

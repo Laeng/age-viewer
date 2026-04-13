@@ -37,7 +37,7 @@ import {
   faTrash,
   faThumbtack,
 } from '@fortawesome/free-solid-svg-icons';
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 import cxtmenu from '../../lib/cytoscape-cxtmenu';
 import { initLocation, seletableLayouts } from './CytoscapeLayouts';
 import { stylesheet } from './CytoscapeStyleSheet';

@@ -20,7 +20,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Badge } from 'react-bootstrap';
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import {

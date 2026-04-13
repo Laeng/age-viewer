@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { ListGroup, Button } from 'react-bootstrap';
 import React from 'react';
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 import KeyWordFinder from '../../features/query_builder/KeyWordFinder';
 
 const BuilderSelection = ({ finder, setQuery, currentWord }) => {
