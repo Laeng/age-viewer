@@ -28,6 +28,11 @@ module.exports = {
             PORT: 3001,
             NODE_ENV: "develop",
         },
+        env_production: {
+            name: "ag-viewer-production",
+            PORT: 3000,
+            NODE_ENV: "production",
+        },
         env_release: {
             name: "ag-viewer-release",
             PORT: 4000,

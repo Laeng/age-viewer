@@ -34,6 +34,21 @@ var sqlBasePath = path.join(__dirname, '../../sql');
 function getQuery(name) {
   var version = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   var sqlPath = path.join(sqlBasePath, version, "".concat(name, ".sql"));
+  if (!_fs["default"].existsSync(sqlPath) && version) {
+    // Fallback: find the closest available version directory
+    var available = _fs["default"].readdirSync(sqlBasePath).map(Number).filter(function (n) {
+      return !isNaN(n);
+    }).sort(function (a, b) {
+      return b - a;
+    });
+    var requested = Number(version);
+    var fallback = available.find(function (v) {
+      return v <= requested;
+    });
+    if (fallback) {
+      sqlPath = path.join(sqlBasePath, String(fallback), "".concat(name, ".sql"));
+    }
+  }
   if (!_fs["default"].existsSync(sqlPath)) {
     throw new Error("SQL does not exist, name = ".concat(name));
   }

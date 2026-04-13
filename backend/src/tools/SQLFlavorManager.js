@@ -23,7 +23,19 @@ const sqlBasePath = path.join(__dirname, '../../sql');
 
 // todo: util.format -> ejs
 function getQuery(name, version='') {
-    const sqlPath = path.join(sqlBasePath, version, `${name}.sql`);
+    let sqlPath = path.join(sqlBasePath, version, `${name}.sql`);
+    if (!fs.existsSync(sqlPath) && version) {
+        // Fallback: find the closest available version directory
+        const available = fs.readdirSync(sqlBasePath)
+            .map(Number)
+            .filter(n => !isNaN(n))
+            .sort((a, b) => b - a);
+        const requested = Number(version);
+        const fallback = available.find(v => v <= requested);
+        if (fallback) {
+            sqlPath = path.join(sqlBasePath, String(fallback), `${name}.sql`);
+        }
+    }
     if (!fs.existsSync(sqlPath)) {
         throw new Error(`SQL does not exist, name = ${name}`);
     }
